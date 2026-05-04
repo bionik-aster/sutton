@@ -1,0 +1,36 @@
+/* general */
+html {
+    font-family: 'Bahnschrift', Arial, sans-serif;
+}
+/* top banner */
+.mainbanner {
+    background-color: #0f77e2;
+    background-image: linear-gradient(to right, #0f77e2, #0413ba);
+    text-align: center;
+    color: #fff;
+    overflow-x: hidden;
+}
+.mainbanner-text {
+    padding: 0px;
+    margin: 10px;
+}
+.mainbanner-text h1,.mainbanner-text h2,.mainbanner-text p {
+    margin: 5px;
+}
+/* top bar thing */
+.topbar {
+    display: flex;
+    background-color: #cbcbcb;
+    text-align: left;
+    font-size: 15px;
+}
+.topbar-stack {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.topbar-img {
+    height: 36px;
+    padding: 5px;
+}
