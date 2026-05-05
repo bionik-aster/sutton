@@ -2,12 +2,27 @@
 html {
     font-family: 'Bahnschrift', Arial, sans-serif;
 }
+body {
+    margin: 0;
+}
+a {
+    color: #7fffa6;
+    text-decoration: none;
+    transition-duration: 200ms;
+}
+a:visited {
+    color: #31b2a1;
+}
+a:hover {
+    text-decoration: underline;
+    transition-duration: 200ms;
+}
 /* top banner */
 .mainbanner {
     background-color: #0f77e2;
     background-image: linear-gradient(to right, #0f77e2, #0413ba);
     text-align: center;
-    color: #fff;
+    color: #efefef;
     overflow-x: hidden;
 }
 .mainbanner-text {
@@ -17,9 +32,14 @@ html {
 .mainbanner-text h1,.mainbanner-text h2,.mainbanner-text p {
     margin: 5px;
 }
+.mainbanner-img {
+    height: 250px;
+}
 /* top bar thing */
 .topbar {
     display: flex;
+    position: sticky;
+    top: 0;
     background-color: #cbcbcb;
     text-align: left;
     font-size: 15px;
@@ -33,4 +53,110 @@ html {
 .topbar-img {
     height: 36px;
     padding: 5px;
+}
+/* flexbox main box */
+.flexmain {
+    display: flex;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding: 0;
+    flex-direction: row;
+}
+/* left content box */
+.leftbox {
+    border-right: 5px solid #0413ba;
+    width: 20vw;
+    margin-left: 10px;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+/* right content box */
+.rightbox {
+    padding-left: 30px;
+    padding-right: 10px;    
+}
+/* footer */
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    background-color: #1a1448;
+    color: #efefef;
+    padding: 10px;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+footer div {
+    max-width: 33%;
+}
+footer h1 {
+    margin: 5px;
+}
+footer h2 {
+    border-left: 3px solid #74c7ff;
+    border-bottom: 3px solid #74c7ff;
+    padding-left: 5px;
+    transition-duration: 400ms;
+    transition-delay: 200ms;
+}
+footer h2:hover {
+    transform: translateY(-10px);
+    transition-duration: 400ms;
+}
+footer h3.titlePS {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 0;
+    transition-duration: 400ms;
+    transition-delay: 200ms;
+    color: #666666;
+    font-size: 20px;
+}
+footer h3.titlePS:hover {
+    transform: translateY(-5px);
+    color: #efefef;
+    font-size: 25px;
+}
+/* div under footer */
+.underfooter {
+    text-align: center;
+    background-color: #1a1448;
+    margin: 0;
+    font-size: 14px;
+    color: #efefef;
+    padding: 2px;
+}
+.underfooter p {
+    margin: 5px;
+    transition-duration: 400ms;
+    transition-delay: 200ms;
+}
+.underfooter p:hover {
+    transform: translateY(-5px);
+    transition-duration: 400ms;
+}
+/* mobile compatibility */
+@media screen and (width <= 600px) {
+    /* mainbanner */
+    .mainbanner-img {
+        height: 150px;
+    }
+    /* content box */
+    .leftbox {
+        width: 100%;
+        border: 5px solid #0413ba;
+        overflow-x: hidden;
+        text-align: center;
+        margin-left: 0;
+    }
+    .flexmain {
+        flex-direction: column;
+    }
+    .rightbox {
+        padding: 10px;
+    }
 }
