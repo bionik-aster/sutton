@@ -76,6 +76,39 @@ a:hover {
     padding-left: 30px;
     padding-right: 10px;    
 }
+/* search section */
+.searchflex {
+    display: flex;
+    align-items: center;
+}
+#searchbar {
+    border: 0;
+    width: 75vw;
+    max-width: 300px;
+    height: 25px;
+}
+.search-btn {
+    background-color: #00a408;
+    color: #efefef;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+    transition-duration: 400ms;
+    transition-delay: 100ms;
+}
+.search-btn:hover {
+    background-color: #03603b;
+    padding: 3px;
+    font-size: 16px;
+    transition-duration: 400ms;
+}
+.search-img {
+    box-sizing: border-box;
+    height: 15px;
+    width: auto;
+    padding-right: 5px;
+    transform: translateY(1px);
+}
 /* footer */
 footer {
     width: 100%;
@@ -158,5 +191,16 @@ footer h3.titlePS:hover {
     }
     .rightbox {
         padding: 10px;
+    }
+    /* search section */
+    .searchflex {
+        flex-direction: column;
+    }
+    /* footers */
+    footer {
+        flex-direction: column;
+    }
+    footer div {
+        max-width: 100%;
     }
 }

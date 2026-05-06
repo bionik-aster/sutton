@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="sutton_coa.png" type="image/png">
     <script src="time.js" defer></script>
+    <script src="search.js" defer></script>
   </head>
   <body>
     <main>
@@ -41,8 +42,20 @@
             <p>
               This is the official archives of the Sutton Empire, created by Iþas Aster Irving.
               The website is still in development, therefore not all information about the Sutton Empire can
-              be found here. 
+              be found here. Certain pages do not have a URL linked to them, mostly due to the documents not
+              being made yet.
             </p>
+            <div class="searchflex">
+              <input type="text" id="searchbar" placeholder="Search a document... / Mefzero vir axerasuže...">
+              <button onclick="search()" class="search-btn"><img class="search-img" src="search.png">Search</button>
+            </div>
+            <div class="pages">
+              <ul>
+                <li>Constitution</li>
+                <li>Declaration of Independence</li>
+              </ul>
+              <p id="noResults" style="display:none; color: red;">No results match your search.</p>
+            </div>
           </div>
         </div>
       </div>
