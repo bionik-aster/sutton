@@ -62,6 +62,7 @@
                     <input id="oaffi" class="form-input" name="Other Affiliation" type="text" placeholder="Other nation affiliations...">
                     <button type="submit" class="search-btn">Submit / Somezo</button>
                 </form>
+                <img src="/loading.gif" id="loading" alt="A loading GIF.">
             </div>
             <div class="centerthecontent">
                 <button class="search-btn" onclick="window.location.href = '/'">Return to main page</button>
@@ -94,12 +95,13 @@
             <p>&copy; 2026 Government of the Sutton Empire. All rights reserved.</p>
         </div>
     </body>
-    <script>
+    <script defer>
         const form = document.getElementById("regform");
 
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
 
+            loading(true);
             const formData = new FormData(form);
 
             try {

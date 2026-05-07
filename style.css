@@ -134,6 +134,20 @@ a:hover {
     font-style: italic;
     font-size: 15px;
 }
+#loading {
+    height: 48px;
+    display: none;
+    justify-self: center;
+}
+.signature {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.signature .topbar-stack p {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
 /* footer */
 footer {
     width: 100%;
