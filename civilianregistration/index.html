@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sutton Empire - Civilian Registration</title>
+        <meta name="description" content="Registration for citizen status for Sutton">
+        <meta name="author" content="Iþas Aster I">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="shortcut icon" href="/sutton_coa.png" type="image/png">
+        <script src="/persistenttext.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <div class="topbar">
+                <img src="/sutton_flag.png" class="topbar-img" alt="The flag of Sutton">
+                <div class="topbar-stack">
+                    <span>This is an official service provided by the Sutton Empire Imperial Archive.</span>
+                    <span>Me ojusai ženkuiam zie, le <i>Iþpaixái Sutonam - Sužeþoli Iþpaixám</i> ponize.</span>
+                </div>
+            </div>
+            <div class="mainbanner">
+                <img src="/sutton_coa.png" class="mainbanner-img" alt="The imperial coat of arms of Sutton">
+                <div class="mainbanner-text">
+                    <h1>Džečmedi Ogežram</h1>
+                    <h2>Civilian Registration</h2>
+                </div>
+            </div>
+            <div class="flexmain">
+                <div class="rightbox">
+                    <h1>Notice</h1>
+                    <hr>
+                    <p>
+                        The data you submit can be viewed by the Iþas and their personally appointed personnel during review.
+                        You are also reminded that you can create fictious First names and Surnames,
+                        if you do not wish to use your legal name.
+                        All fields marked with a red asterisk (*) is a required field.
+                    </p>
+                </div>
+            </div>
+            <div id="formcontent">
+                <form id="regform">
+                    <label for="fname" required>First Name</label>
+                    <input id="fname" class="form-input" name="First Name" type="text" placeholder="Enter your first name..." required>
+                    <label for="sname" required>Surname</label>
+                    <input id="sname" class="form-input" name="Surname" type="text" placeholder="Enter your surname..." required>
+                    <label for="religion" required>Religion (stat purposes only)</label>
+                    <input id="religion" class="form-input" name="Religion" type="text" placeholder="Enter your religious belief..." required>
+                    <label for="email" required>Email</label>
+                    <input id="email" class="form-input" name="Email" type="email" placeholder="Enter your email..." autocomplete required>
+                    <label for="dcuser" required>Discord Username</label>
+                    <input id="dcuser" class="form-input" name="Discord Username" type="text" placeholder="Enter your DC username..." required>
+                    <label for="gender" required>Gender</label>
+                    <select id="gender" class="form-input" name="Gender" required>
+                        <option value="">---Preferred Gender---</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="enby/other">Nonbinary/Other</option>
+                        <option value="unknown">Prefer Not To Disclose</option>
+                    </select>
+                    <label for="oaffi">Other affiliations</label>
+                    <input id="oaffi" class="form-input" name="Other Affiliation" type="text" placeholder="Other nation affiliations...">
+                    <button type="submit" class="search-btn">Submit / Somezo</button>
+                </form>
+            </div>
+            <div class="centerthecontent">
+                <button class="search-btn" onclick="window.location.href = '/'">Return to main page</button>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <h1>Sutton Empire</h1>
+                <h3 class="titlePS">Iþpaixái Sutonam</h3>
+                <h2>Contact Us</h2>
+                <p>None as of now.</p>
+            </div>
+            <div>
+                <h2>Notice</h2>
+                <p>
+                    All content displayed on this website is created by, and is property of, the Sutton Empire,
+                    and is hence protected by international copyright conventions as well as other national copyright laws.
+                    Therefore, use of information from this website without consent is strictly prohibited.
+                </p>
+            </div>
+            <div>
+                <h2>Inquiries</h2>
+                <p>For inquiries, please email
+                    <a href="mailto:suttongov@atomicmail.io?subject=Inquiry%20About%20The%20Sutton%20Empire">
+                        suttongov@atomicmail.io</a>. Thank you.
+                </p>
+            </div>
+        </footer>
+        <div class="underfooter">
+            <p>&copy; 2026 Government of the Sutton Empire. All rights reserved.</p>
+        </div>
+    </body>
+    <script>
+        const form = document.getElementById("regform");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            try {
+                await fetch(
+                    "https://script.google.com/macros/s/AKfycbwRSxLmjfIaLEETdWuvAsF92cRE3_nf5TKuFyA0oavYgcHWZxKOMjg8GmBSAiCBEjpbuw/exec",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+                congrats();
+            }
+            catch(e) {
+                alert(`An error occurred - ${e}`);
+                console.error(e);
+            }
+        });
+    </script>
+</html>
