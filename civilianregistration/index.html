@@ -125,7 +125,13 @@
                 });
 
                 congrats();
-                var status = await response.json();
+                let status;
+
+                try {
+                    status = await response.json();
+                } catch (e) {
+                    status = { message: "Invalid server response" };
+                }
                 alert(status.message);
             }
             catch(e) {

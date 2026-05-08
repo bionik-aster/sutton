@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email } = req.body;
+    const { email } = req.body || {};
 
     await resend.emails.send({
       from: "Sutton Empire <onboarding@resend.dev>",
@@ -37,6 +37,7 @@ export default async function handler(req, res) {
 
     res.status(500).json({
       message: "Error 500 - Failed to send email",
+      error: err.message
     });
   }
 }
