@@ -34,6 +34,9 @@
                         The data you submit can be viewed by the Iþas and their personally appointed personnel during review.
                         You are also reminded that you can create fictious First names and Surnames,
                         if you do not wish to use your legal name.
+                        Note that you can only attempt this submission once, and any attempt to spam-submit will be
+                        automatically nullified.
+                        The form will be replaced by a Thank You page once it is submitted.
                         All fields marked with a red asterisk (*) is a required field.
                     </p>
                 </div>
@@ -103,6 +106,7 @@
 
             loading(true);
             const formData = new FormData(form);
+            const email = document.getElementById("email").value;
 
             try {
                 await fetch(
@@ -112,8 +116,17 @@
                         body: formData
                     }
                 );
+                const response = await fetch("/api/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email }),
+                });
 
                 congrats();
+                var status = await response.json();
+                alert(status.message);
             }
             catch(e) {
                 alert(`An error occurred - ${e}`);
