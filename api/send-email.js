@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   try {
     const { email } = req.body || {};
 
-    await resend.emails.send({
+    var result = await resend.emails.send({
       from: "Sutton Empire <onboarding@resend.dev>",
       to: email,
       subject: "[CITIZENSHIP APPLICATION] Thank you for submitting! / Xedžidú vir asomezo!",
@@ -27,9 +27,10 @@ export default async function handler(req, res) {
         <p><i>VIR IÞPAIXÁ KI MÁLAS</i></p>
       `,
     });
+    console.log(result);
 
     res.status(200).json({
-      message: "Error 200 - Email sent successfully!",
+      message: "Email sent successfully!",
     });
 
   } catch (error) {

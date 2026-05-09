@@ -116,23 +116,8 @@
                         body: formData
                     }
                 );
-                const response = await fetch("/api/send-email", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ email }),
-                });
 
                 congrats();
-                let status;
-
-                try {
-                    status = await response.json();
-                } catch (e) {
-                    status = { message: "Invalid server response" };
-                }
-                alert(status.message);
             }
             catch(e) {
                 alert(`An error occurred - ${e}`);
