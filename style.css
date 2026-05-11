@@ -6,12 +6,12 @@ body {
     margin: 0;
 }
 a {
-    color: #7fffa6;
+    color: #008127;
     text-decoration: none;
     transition-duration: 200ms;
 }
 a:visited {
-    color: #31b2a1;
+    color: #03564b;
 }
 a:hover {
     text-decoration: underline;
@@ -192,6 +192,12 @@ footer h3.titlePS:hover {
     transform: translateY(-5px);
     color: #efefef;
     font-size: 25px;
+}
+footer a {
+    color: #31e163;
+}
+footer a:visited {
+    color: #026b4a;
 }
 /* div under footer */
 .underfooter {
