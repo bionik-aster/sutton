@@ -7,7 +7,7 @@ function search() {
 
     if (searchValue.trim() === "") {
         pages.forEach(item => {
-            item.innerHTML = item.dataset.originalText || item.textContent;
+            item.innerHTML = item.dataset.originalHtml || item.innerHTML;
             item.style.display = "";
         });
 
@@ -16,16 +16,32 @@ function search() {
     }
 
     pages.forEach(function(item) {
-        let originalText = item.dataset.originalText || item.textContent;
+
+        // Store original HTML once
+        if (!item.dataset.originalHtml) {
+            item.dataset.originalHtml = item.innerHTML;
+        }
+
+        let originalHtml = item.dataset.originalHtml;
+
+        // Use textContent only for searching
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = originalHtml;
+
+        let originalText = tempDiv.textContent;
         let lowerText = originalText.toLowerCase();
 
-        item.innerHTML = originalText;
+        // Reset HTML
+        item.innerHTML = originalHtml;
 
         if (lowerText.includes(searchValue)) {
             matches++;
 
-            let regex = new RegExp(searchValue, "gi");
-            item.innerHTML = originalText.replace(regex, match => `<mark>${match}</mark>`);
+            // Highlight matches while preserving links
+            let escaped = searchValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            let regex = new RegExp(`(${escaped})`, "gi");
+
+            item.innerHTML = originalHtml.replace(regex, `<mark>$1</mark>`);
 
             item.style.display = "";
         } else {
